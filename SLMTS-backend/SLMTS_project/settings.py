@@ -185,7 +185,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8080",
     "http://127.0.0.1:8081",
-    "https://slmts-project.vercel.app",  # Vercel production deployment
+    "https://laundrysystem-ten.vercel.app",  # Vercel production deployment
+    "https://laundrysystem-git-main-allan-lutalos-projects.vercel.app",  # Vercel git branch deployment
 ]
 
 # Additional CORS settings for development
@@ -193,6 +194,11 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Allow all origins in development (DISABLE in production for security)
 CORS_ALLOW_ALL_ORIGINS = False  # Changed to False for production security
+
+# Allow all Vercel preview deployments (they follow pattern *.vercel.app)
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",  # Matches all Vercel deployments
+]
 
 # CSRF exemption for API endpoints (since we use token auth)
 CSRF_TRUSTED_ORIGINS = [
@@ -203,7 +209,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8080",
     "http://127.0.0.1:8081",
     "https://slmts-project.onrender.com",  # Render backend
-    "https://slmts-project.vercel.app",  # Vercel frontend
+    "https://laundrysystem-ten.vercel.app",  # Vercel production
+    "https://laundrysystem-git-main-allan-lutalos-projects.vercel.app",  # Vercel git branch
 ]
 
 # Additional CORS settings
