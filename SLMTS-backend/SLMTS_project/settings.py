@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@3q0c5-hh1-@ifeq6$_4+e1lu3vy$&$w-lg!h+ab90)c(u!$-f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['slmts-project.onrender.com']
+ALLOWED_HOSTS = ['slmts-project.onrender.com', 'localhost', '127.0.0.1']
 
 
 
@@ -185,13 +185,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8080",
     "http://127.0.0.1:8081",
+    "https://slmts-project.vercel.app",  # Vercel production deployment
 ]
 
 # Additional CORS settings for development
 CORS_ALLOW_CREDENTIALS = True
 
-# Allow all origins in development (remove in production)
-CORS_ALLOW_ALL_ORIGINS = True
+# Allow all origins in development (DISABLE in production for security)
+CORS_ALLOW_ALL_ORIGINS = False  # Changed to False for production security
 
 # CSRF exemption for API endpoints (since we use token auth)
 CSRF_TRUSTED_ORIGINS = [
@@ -201,6 +202,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8080",
     "http://127.0.0.1:8081",
+    "https://slmts-project.onrender.com",  # Render backend
+    "https://slmts-project.vercel.app",  # Vercel frontend
 ]
 
 # Additional CORS settings
@@ -216,11 +219,11 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-# Cookie settings for development
-CSRF_COOKIE_SAMESITE = 'Lax'  # Changed from 'None' for development
-CSRF_COOKIE_SECURE = False  # Set to True in production with HTTPS
-SESSION_COOKIE_SAMESITE = 'Lax'  # Changed from 'None' for development
-SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+# Cookie settings for production
+CSRF_COOKIE_SAMESITE = 'None'  # Required for cross-origin requests
+CSRF_COOKIE_SECURE = True  # Required when using HTTPS
+SESSION_COOKIE_SAMESITE = 'None'  # Required for cross-origin requests
+SESSION_COOKIE_SECURE = True  # Required when using HTTPS
 CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript to read CSRF token
 SESSION_COOKIE_HTTPONLY = True  # Keep session cookie secure
 
