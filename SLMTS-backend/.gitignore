@@ -1,0 +1,72 @@
+# Virtual environment
+env/
+env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+pip-wheel-metadata/
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.pytest_cache/
+.cache
+.coverage
+coverage.xml
+htmlcov/
+
+# Django stuff:
+# SQLite database file
+db.sqlite3
+*.sqlite3
+
+# Media and static files (adjust if you check these in)
+media/
+staticfiles/
+static/
+
+# Local env vars
+.env
+env.local
+venv/
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets (local settings)
+local_settings.py
+
+# Celery
+celerybeat-schedule
